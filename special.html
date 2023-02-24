@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Map</title>
+    <style>
+        #map {
+            height: 600px;
+            float: left;
+            width: 70%;
+        }        
+    </style>
+    <link rel="stylesheet" href="all.css">
+
+</head>
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script>
+    function Location(address, sitename, tel, lat, lng) {
+        this.address = address
+        this.sitename = sitename
+        this.tel = tel
+        this.lat = lat
+        this.lng = lng
+       
+        this.center = { lat: parseFloat(lat), lng: parseFloat(lng) }
+    }
+   
+    window.onload = function () {
+        // fetch("../special.json")
+        //     .then(function (response) {
+        //         return response.json()
+        //     })
+        //     .then(function (jsonObj) {
+        //         let records = []
+        //         jsonObj["records"].forEach(function (rd) {
+        //             records.push(new Location(rd.address, rd.sitename, rd.tel, rd.latitude, rd.longitude))
+        //         })
+        //         pinMarkersCluster(records)
+        //     })
+        // btn1()
+    }
+
+    function pinMarkers(records) {
+        records.forEach(function (rd) {
+            new google.maps.Marker({
+                position: rd.center,
+                map: map,
+                label: rd.sitename
+            })
+        })
+    }
+    // function pinMarkersCluster(records) {
+    //     const markers = []
+    //     records.forEach(function (rd) {
+    //         markers.push(
+    //             new google.maps.Marker({
+    //                 position: rd.center,
+    //                 map: map,
+    //                 title: rd.sitename
+    //             })
+    //         )          
+    //     })        
+    //     new markerClusterer.MarkerClusterer({markers,map})
+    // }
+    let markers = []
+    function pinMarkersCluster(records) {
+    records.forEach(function (rd) {
+        const marker = new google.maps.Marker({
+            position: rd.center,
+            map: map,
+            title: rd.sitename
+        })
+        markers.push(marker)
+        const infowindow = new google.maps.InfoWindow({
+            content: `<h3>${rd.sitename}</h3><p>${rd.address}</p><p>${rd.tel}</p>`,
+        })
+        marker.addListener('click',function(){
+            infowindow.open(map, marker);
+        });
+    })            
+        // new markerClusterer.MarkerClusterer({markers,map})
+    }
+
+    function DeleteMarkers() {   
+        //Loop through all the markers and remove   
+        for (var i = 0; i < markers.length; i++) {   
+            markers[i].setMap(null);   
+        }   
+        markers = [];   
+    };  
+
+    
+
+    let map;
+
+    function initMap() {
+        let center = { lat: 23.9742, lng: 120.9798 }
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: center,
+            zoom: 7,
+        });        
+    }
+
+    window.initMap = initMap;   
+
+    function btn1(){
+        DeleteMarkers()
+        fetch("../special.json")
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (jsonObj) {
+                let records = []
+                jsonObj["records"].forEach(function (rd) {
+                    records.push(new Location(rd.address, rd.sitename, rd.tel, rd.latitude, rd.longitude))
+                })
+                pinMarkersCluster(records)
+            })
+    }
+
+    function btn2(){
+        DeleteMarkers()
+        fetch("../special1.json")
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (jsonObj) {
+                let records = []
+                jsonObj["records"].forEach(function (rd) {
+                    records.push(new Location(rd.address, rd.sitename, rd.tel, rd.latitude, rd.longitude))
+                })
+                pinMarkersCluster(records)
+            })
+    }
+
+    function btn3(){
+        DeleteMarkers()
+        fetch("../special2.json")
+            .then(function (response) {
+                return response.json()
+            })
+            .then(function (jsonObj) {
+                let records = []
+                jsonObj["records"].forEach(function (rd) {
+                    records.push(new Location(rd.address, rd.sitename, rd.tel, rd.latitude, rd.longitude))
+                })
+                pinMarkersCluster(records)
+            })
+    }
+</script>
+
+<body>
+    <button id="btn" onclick="openNav1()">&#9776; ></button>
+    <div class="image-container" id="image-container">
+        <h2 class="glow">知名天文館</h2>
+    </div>
+    <div id="mySidenav" class="sidenav">   	
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+        <a href="./Eight_planets.html"><i class="fas fa-globe"></i>八大行星</a>
+        <a href="#"><i class="fas fa-globe"></i>三矮行星</i></a>
+        <a href="#"><i class="fas fa-globe"></i>太陽系的衛星</a>
+        <a href="./special.html"><i class="fas fa-globe"></i>Link</a>   	   	
+   </div>
+    <div id="mapdiv">
+        <div id="btn-map">
+            <button class="button" onclick="btn1()">研究及學術單位</button><br><br><br><br><br>
+            <button class="button" onclick="btn2()">教育單位</button><br><br><br><br><br>
+            <button class="button" onclick="btn3()">其他單位</button>
+        </div>
+        <div id="map"></div>
+    </div> 
+    
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises
+      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+      -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeVEHgPUfAKu-BgI5dni_BDQ-mgva-uXg&callback=initMap&v=weekly"
+        defer></script>
+    <script src="/js.js"></script>
+</body>
+
+</html>

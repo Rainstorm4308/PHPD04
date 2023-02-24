@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <style>
+        #window-container{
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+               
+        .window-pop{
+            display: none;
+            background: rgb(230, 221, 221);
+            width:50%;
+            height: 70%;
+            z-index: 1;
+            margin: 7% auto;
+            overflow: auto;
+            border-radius: 20px;
+        }
+                
+        .window-content {
+            width: auto;
+            height: auto;
+            line-height: auto;
+            overflow: auto;
+            text-align: center;
+        }
+        
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+        p{
+          text-align: left;
+          margin: 5px;
+          font-size: 20px;
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    <button id="btn" style="float: left;" onclick="openNav2()">&#9776; ></button>
+    
+    <div class="image-container" id="image-container">
+        <h2 class="glow">八大行星</h2>
+    </div> 
+
+    <div id="mySidenav" class="sidenav">   	
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+        <a href="/ex.html">首頁</a>
+        <a href="./Eight_planets.html"><i class="fas fa-globe"></i>八大行星</a>
+        <a href="#"><i class="fas fa-globe"></i>三矮行星</i></a>
+        <a href="#"><i class="fas fa-globe"></i>太陽系的衛星</a>
+        <a href="#"><i class="fas fa-globe"></i>Link</a>   	   	
+   </div>
+
+    <div id="card" class="card">        
+        <p>太陽系的八大行星依序為水星, 金星, 地球, 火星, 木星, 土星, 天王星, 海王星.
+            八大行星的相對大小是怎麼樣呢?
+            <br>
+            請點選下面的行星圖片即可看到各行星的相關介紹:
+        </p>
+    </div>
+    <div id="window-container">
+        <div id="mercury-window" class="window-pop">
+            <div class="window-content">
+              <h1>水星簡介:</h1>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;水星是太陽系八大行星中最內側最接近太陽的行星，距離太陽約0.39個天文單位，是個佈滿坑洞的小行星。 在冥王星降級成為矮行星之後，成為八大行星中最小的行星。 古代的時候人類就注意到水星的存在，常常在大清早或者是傍晚太陽剛下山時出現在接近地平線的附近。 所以在中國古代水星又稱為晨星(出現在早晨的時候)或者昏星(出現在黃昏過後)。</p>
+              <h3>水星的地形外觀</h3>
+              <img src="./mercury-title.jpg">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;水星的半徑約為2440公里，在八大行星中是最小的，小到甚麼程度呢? 水星甚至比木星最大的衛星加尼美德以及土星最大的衛星泰坦還要小!! 在照片中可以看到水星清晰的邊緣，表示水星表面沒有濃厚的大氣層。 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;水星的表面狀況類似月球，有許多凹凹凸凸的隕石坑，但沒有月球上「海」的構造，另外大型的懸崖峭壁也十分常見 ，除了這些構造以外，水星也有其他比較平緩的平原地區，可能是古代的火山區。左圖為水星表面照片與月球表面照片之比較。<br> 
+                &nbsp;&nbsp;&nbsp;&nbsp;水星表面這樣的地形顯示，水星在行成之後便受到許多隕石的撞擊，因此產生這樣坑坑疤疤的外表。水星上最大的隕石坑是「卡洛里斯盆地」，直徑約達1300 公里，為水星直徑的四分之一。根據推算應該是曾經遭受直徑100公里程度的小行星撞擊而產生的遺跡。  </p>
+            </div>
+          </div>
+          
+          <div id="venus-window" class="window-pop">
+            <div class="window-content">
+              <span>金星的介紹</span>
+            </div>
+          </div>
+          
+          <div id="earth-window" class="window-pop">
+            <div class="window-content">
+              <span>地球的介紹</span>
+            </div>
+          </div>
+          
+          <div id="mars-window" class="window-pop">
+            <div class="window-content">
+              <span>火星的介紹</span>
+            </div>
+          </div>
+          <div id="jupiter-window" class="window-pop">
+            <div class="window-content">
+              <span>水星的介紹</span>
+            </div>
+          </div>
+          
+          <div id="Saturn-window" class="window-pop">
+            <div class="window-content">
+              <span>金星的介紹</span>
+            </div>
+          </div>
+          
+          <div id="URANUS-window" class="window-pop">
+            <div class="window-content">
+              <span>地球的介紹</span>
+            </div>
+          </div>
+          
+          <div id="neptune-window" class="window-pop">
+            <div class="window-content">
+              <span>火星的介紹</span>
+            </div>
+          </div>
+    </div>
+   
+
+    <div >
+        <table>
+            <tr>
+                <td><img id="mercury-img" src="./mercury.jpg" onclick="showWindow(0)" width="200px" height="auto" ></a></td>
+                <td><img id="venus-img" src="./venus.jpg" onclick="showWindow(1)" width="200px" height="auto" ></td>
+                <td><img id="earth-img" src="./earth1.jpg" onclick="showWindow('earth-window')" width="200px" height="auto"></td>
+                <td><img id="mars-img" src="./mars.jpg" onclick="showWindow('mars-window')" width="200px" height="auto"></td>
+
+            </tr>
+            <tr>
+                <td class="opdesc">水星</td>
+                <td class="opdesc">金星</td>
+                <td class="opdesc">地球</td>
+                <td class="opdesc">火星</td>
+            </tr>
+            <tr>
+                <td><img id="jupiter-img" src="./jupiter1.jpg" onclick="showWindow('jupiter-window')" width="200px" height="auto" ></td>
+                <td><img id="Saturn-img" src="./Saturn.jpg" onclick="showWindow('Saturn-window')" width="200px" height="200px" ></td>
+                <td><img id="URANUS-img" src="./URANUS1.jpg" onclick="showWindow('URANUS-window')" width="200px" height="auto" ></td>
+                <td><img id="neptune-img" src="./neptune.jpg" onclick="showWindow('neptune-window')" width="200px" height="auto" ></td>
+            </tr>
+            <tr>
+                <td class="opdesc">木星</td>
+                <td class="opdesc">土星</td>
+                <td class="opdesc">天王星</td>
+                <td class="opdesc">海王星</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+<script src="/js.js"></script>
+<script>
+    function showWindow(id) {
+        var popup_window0 = document.getElementById("window-container");
+        var popup_window = document.getElementsByClassName("window-pop");
+        popup_window0.style.display = "block"
+        popup_window[id].style.display = "block";        
+
+        window.onclick = function close(e) {
+            if (e.target == popup_window0) {              
+              popup_window0.style.display = "none"
+              popup_window[id].style.display = "none"; 
+            }
+        }
+    }
+    
+</script>
+</html>
